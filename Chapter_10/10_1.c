@@ -3,10 +3,6 @@
 #define MONTHS 12 /*一年的月份数*/
 #define YEARS 5 /*年数*/
 
-
-/*交换字符串位置*/
-
-
 int main(void)
 {
     const float aryfRain[YEARS][MONTHS] =

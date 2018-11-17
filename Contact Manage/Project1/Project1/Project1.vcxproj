@@ -115,12 +115,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AddString.c" />
     <ClCompile Include="FileOpearte.c" />
     <ClCompile Include="Input.c" />
     <ClCompile Include="Source.c" />
     <ClCompile Include="UI.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddString.h" />
     <ClInclude Include="FileOpearte.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="UI.h" />

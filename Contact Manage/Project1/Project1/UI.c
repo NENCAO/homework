@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include "FileOpearte.h"
 
-
+extern struct tagManger *g_pstMangerHead;
+extern char *g_pMenmoryAreaHead;
 /*
  *   自定义打印字符串的函数
  *   传入sz类型的字符串
@@ -55,4 +57,54 @@ void StartInterface(void)
            7.碎片整理");
 
     MyPrint("\r\n");
+}
+
+/*
+ *   显示用户输入后的字符串
+ */
+void ShowInputString(void)
+{
+    struct tagManger *stMangerTemp = g_pstMangerHead;
+    char *stMemoryTemp = g_pMenmoryAreaHead;
+    int nCount = 0;
+
+    MyPrint("                                 当前字符串\r\n");
+    MyPrint("================================================================================\r\n");
+
+    while (NULL != stMangerTemp)
+    {
+        if (1 == stMangerTemp->isOccupy)
+        {
+            printf("姓名:");
+            while ('`' != *(stMemoryTemp + stMangerTemp->nOffset + nCount))
+            {
+                putchar(*(stMemoryTemp + stMangerTemp->nOffset + nCount));
+                nCount++;
+            }
+            printf("     ");
+            nCount++;
+
+            printf("手机:");
+            while ('`' != *(stMemoryTemp + stMangerTemp->nOffset + nCount))
+            {
+                putchar(*(stMemoryTemp + stMangerTemp->nOffset + nCount));
+                nCount++;
+            }
+            printf("     ");
+            nCount++;
+
+            printf("地址:");
+            while ('\0' != *(stMemoryTemp + stMangerTemp->nOffset + nCount))
+            {
+                putchar(*(stMemoryTemp + stMangerTemp->nOffset + nCount));
+                nCount++;
+            }
+
+            printf("\r\n");
+        }
+        stMangerTemp = stMangerTemp->pstNext;
+        nCount = 0;
+    }
+
+    MyPrint("================================================================================\r\n");
 }

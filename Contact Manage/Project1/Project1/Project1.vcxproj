@@ -116,14 +116,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AddString.c" />
+    <ClCompile Include="Delete.c" />
     <ClCompile Include="FileOpearte.c" />
+    <ClCompile Include="Find.c" />
     <ClCompile Include="Input.c" />
     <ClCompile Include="Source.c" />
     <ClCompile Include="UI.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddString.h" />
+    <ClInclude Include="Delete.h" />
     <ClInclude Include="FileOpearte.h" />
+    <ClInclude Include="Find.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>

@@ -12,10 +12,15 @@
 /*内存文件的最大字节数*/
 #define MAXSIZE 500
 
-/*获取用户输入 限制MAXSIZE个字符输入*/
+/*获取用户通讯录的输入 限制MaxInputLength个字符输入*/
 void GetStrUserInput(char * szUserName, char * szUserPhone, char *szUserAddress);
 
 /*获取用户输入的长度*/
 int GetStrLength(char *szUserInput);
 
+/*获取用户输入的数字*/
+int GetIntUserInput(void);
+
+/*获取用户输入的模糊查找字符串 限制MaxInputLength个字符输入*/
+void GetUserFindInput(char * cInput);
 #endif //ContactManage_Project1_Input_H_

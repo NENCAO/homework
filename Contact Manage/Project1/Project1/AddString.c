@@ -138,4 +138,5 @@ void AddString(void)
 
     ModifyMemory(pstFindMangerHead, szUserName, nLength);
 
+
 }

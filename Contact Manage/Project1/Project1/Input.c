@@ -80,3 +80,42 @@ int GetStrLength(char *szUserInput)
         return 0;
     }
 }
+
+/*
+ *   接受用户输入数字
+ *   返回int型整数
+ */
+int GetIntUserInput(void)
+{
+    int nInput = 0;
+    int nTemp = 0;/*清缓存用*/
+
+    while (scanf("%d", &nInput) == 0)
+    {
+        printf("请输入数字!\r\n");
+        while ((nTemp = getchar()) != '\n');
+    }
+
+    while ((nTemp = getchar()) != '\n');
+
+    return nInput;
+}
+
+/*
+ *   接受用户输入查找的字符串
+ *   传入存放字符串的地址
+ */
+void GetUserFindInput(char * cInput)
+{
+    int nTemp = 0;/*清缓存用*/
+
+    while (scanf(INPUT_TYPE(MaxInputLength), cInput) == 0)
+    {
+        printf("Input Error please re-enter");
+        while ((nTemp = getchar()) != '\n' && nTemp != EOF);
+    }
+
+    while ((nTemp = getchar()) != '\n'&& nTemp != EOF);
+
+    return;
+}

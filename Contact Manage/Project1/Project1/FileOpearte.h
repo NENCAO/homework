@@ -2,6 +2,7 @@
 #define ContactManage_Project1_FileOpearte_H_
 
 #include<stdio.h>
+#define SAFE_FREE(p) if(p){free(p);p=NULL;}
 
 struct tagManger
 {

@@ -75,36 +75,76 @@ void ShowInputString(void)
     {
         if (1 == stMangerTemp->isOccupy)
         {
-            printf("姓名:");
+            printf("ID:%05d", stMangerTemp->nOffset);
+            MyPrint("  ");
+
+            MyPrint("姓名:");
             while ('`' != *(stMemoryTemp + stMangerTemp->nOffset + nCount))
             {
                 putchar(*(stMemoryTemp + stMangerTemp->nOffset + nCount));
                 nCount++;
             }
-            printf("     ");
+            MyPrint("     ");
             nCount++;
 
-            printf("手机:");
+            MyPrint("手机:");
             while ('`' != *(stMemoryTemp + stMangerTemp->nOffset + nCount))
             {
                 putchar(*(stMemoryTemp + stMangerTemp->nOffset + nCount));
                 nCount++;
             }
-            printf("     ");
+            MyPrint("     ");
             nCount++;
 
-            printf("地址:");
+            MyPrint("地址:");
             while ('\0' != *(stMemoryTemp + stMangerTemp->nOffset + nCount))
             {
                 putchar(*(stMemoryTemp + stMangerTemp->nOffset + nCount));
                 nCount++;
             }
 
-            printf("\r\n");
+            MyPrint("\r\n");
         }
         stMangerTemp = stMangerTemp->pstNext;
         nCount = 0;
     }
 
     MyPrint("================================================================================\r\n");
+}
+
+/*
+ *   显示用户模糊查找到的字符串
+ *   传入找到的字符串对应表的指针
+ */
+void ShowFindString(char *pcTemp, struct tagManger *stMangerTemp)
+{
+    int nCount = 0;
+    printf("ID:%05d", stMangerTemp->nOffset);
+    MyPrint("  ");
+
+    MyPrint("姓名:");
+    while ('`' != *(pcTemp + nCount))
+    {
+        putchar(*(pcTemp + nCount));
+        nCount++;
+    }
+    MyPrint("     ");
+    nCount++;
+
+    MyPrint("手机:");
+    while ('`' != *(pcTemp + nCount))
+    {
+        putchar(*(pcTemp + nCount));
+        nCount++;
+    }
+    MyPrint("     ");
+    nCount++;
+
+    MyPrint("地址:");
+    while ('\0' != *(pcTemp + nCount))
+    {
+        putchar(*(pcTemp + nCount));
+        nCount++;
+    }
+    MyPrint("\r\n");
 }

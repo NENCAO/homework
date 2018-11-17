@@ -30,6 +30,12 @@
     <ClCompile Include="AddString.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Delete.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Find.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UI.h">
@@ -42,6 +48,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AddString.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Delete.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Find.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -51,9 +51,9 @@ void StartInterface(void)
 
     MyPrint("\r\n");
 
-    MyPrint("1.增加字符串         2.删除字符串\
-             3.修改字符串         4.查询字符串\
-         \r\n5.统计字母           6.查看存储信息\
+    MyPrint("1.增加联系人         2.删除联系人\
+             3.修改联系人         4.查询联系人\
+         \r\n5.统计联系人         6.查看存储信息\
            7.碎片整理");
 
     MyPrint("\r\n");
@@ -68,7 +68,7 @@ void ShowInputString(void)
     char *stMemoryTemp = g_pMenmoryAreaHead;
     int nCount = 0;
 
-    MyPrint("                                 当前字符串\r\n");
+    MyPrint("                                 当前联系人\r\n");
     MyPrint("================================================================================\r\n");
 
     while (NULL != stMangerTemp)

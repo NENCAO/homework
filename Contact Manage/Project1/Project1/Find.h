@@ -2,5 +2,5 @@
 #define ContactManage_Project1_Find_H_
 
 /*²éÑ¯Ö÷º¯Êý*/
-void Find(void);
+int Find(void);
 #endif //ContactManage_Project1_Find_H_

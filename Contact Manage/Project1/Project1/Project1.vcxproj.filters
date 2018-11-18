@@ -36,6 +36,18 @@
     <ClCompile Include="Find.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MemInfo.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Modify.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Count.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Diskfragment.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="UI.h">
@@ -54,6 +66,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Find.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MemInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Modify.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Count.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Diskfragment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

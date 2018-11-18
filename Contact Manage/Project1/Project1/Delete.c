@@ -17,30 +17,30 @@ void ListMerging(void)
 {
     struct tagManger *pstTemp = g_pstMangerHead;
     struct tagManger *pstNext = NULL;
+    
+    pstNext = pstTemp->pstNext;
 
     while (NULL != pstNext)
     {
-        pstTemp = g_pstMangerHead;
-        while (NULL != pstNext)
+        if (pstTemp->isOccupy == 0 && pstNext->isOccupy == 0)
         {
+            /*偏移地址不变*/
+            //pstTemp->nOffset
+
+            /*大小合并*/
+            pstTemp->nSize = pstTemp->nSize + pstNext->nSize;
+
+            /*链表尾更改*/
+            pstTemp->pstNext = pstNext->pstNext;
+
+            SAFE_FREE(pstNext);
             pstNext = pstTemp->pstNext;
-            if (pstTemp->isOccupy == 0 && pstNext->isOccupy == 0)
-            {
-                /*偏移地址不变*/
-                //pstTemp->nOffset
-
-                /*大小合并*/
-                pstTemp->nSize = pstTemp->nSize + pstNext->nSize;
-
-                /*链表尾更改*/
-                pstTemp->pstNext = pstNext->pstNext;
-
-                SAFE_FREE(pstNext);
-                break;
-            }
-            pstTemp = pstTemp->pstNext;
+            continue;
         }
+        pstTemp = pstTemp->pstNext;
+        pstNext = pstTemp->pstNext;
     }
+
 }
 
 /*删除字符串主函数*/
@@ -48,8 +48,14 @@ void Delete(void)
 {
     struct tagManger *pstTemp = g_pstMangerHead;
     int nID = -1;
+    int isFind = 0;
 
-    Find();
+    /*没搜索到直接退出*/
+    isFind = Find();
+    if (isFind != 1)
+    {
+        return;
+    }
 
     printf("请输入想删除的ID\r\n");
     nID = GetIntUserInput();
@@ -59,6 +65,7 @@ void Delete(void)
         {
             /*占用状态变为空闲*/
             pstTemp->isOccupy = 0;
+            ListMerging();
             MyPrint("删除成功\r\n");
             system("pause");
             WriteManagerToFile();

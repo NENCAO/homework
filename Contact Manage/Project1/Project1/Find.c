@@ -10,13 +10,14 @@ extern struct tagManger *g_pstMangerHead;
 extern char *g_pMenmoryAreaHead;
 
 /*按名字模糊查找*/
-void NameFind(void)
+int NameFind(void)
 {
     struct tagManger * pstTemp = g_pstMangerHead;
     char *pcTemp = g_pMenmoryAreaHead;
     char UserInput[MaxInputLength] = { '\0' };
     char *pcCheckMod = NULL;
     int nCount = 0;
+    int isFind = 0;
 
     printf("请输入名字查找 支持模糊查找\r\n");
     GetUserFindInput(UserInput);
@@ -42,6 +43,7 @@ void NameFind(void)
                 if (2 == nCount)
                 {
                     ShowFindString(pcTemp, pstTemp);
+                    isFind = 1;
                 }
             }
         }
@@ -49,10 +51,15 @@ void NameFind(void)
         pcCheckMod = NULL;
         nCount = 0;
     }
+    return isFind;
 }
 
-/*按电话号模糊查找*/
-void PhoneFind(void)
+/*
+ *   按电话号模糊查找
+ *   返回1有数据被找到
+ *   返回0没有数据被找到
+ */
+int PhoneFind(void)
 {
     struct tagManger * pstTemp = g_pstMangerHead;
     char *pcTemp = g_pMenmoryAreaHead;
@@ -60,6 +67,7 @@ void PhoneFind(void)
     char szFindString[MaxInputLength] = { '\0' };
     int nTemp = 0;
     int nCount = 0;
+    int isFind = 0;
 
     printf("请输入电话号查找 支持模糊查找\r\n");
     GetUserFindInput(szUserInput);
@@ -82,6 +90,7 @@ void PhoneFind(void)
             if (NULL != strstr(szFindString, szUserInput))
             {
                 ShowFindString(pcTemp, pstTemp);
+                isFind = 1;
             }
         }
         pstTemp = pstTemp->pstNext;
@@ -89,11 +98,12 @@ void PhoneFind(void)
         nTemp = 0;
         nCount = 0;
     }
+    return isFind;
 }
 
 
 /*按地址模糊查找*/
-void AddressFind(void)
+int AddressFind(void)
 {
     struct tagManger * pstTemp = g_pstMangerHead;
     char *pcTemp = g_pMenmoryAreaHead;
@@ -101,6 +111,7 @@ void AddressFind(void)
     char szFindString[MaxInputLength] = { '\0' };
     int nTemp = 0;
     int nCount = 0;
+    int isFind = 0;
 
     printf("请输入地址查找 支持模糊查找\r\n");
     GetUserFindInput(szUserInput);
@@ -120,6 +131,7 @@ void AddressFind(void)
             if (NULL != strstr(pcSecond, szUserInput))
             {
                 ShowFindString(pcTemp, pstTemp);
+                isFind = 1;
             }
         }
         pstTemp = pstTemp->pstNext;
@@ -127,12 +139,18 @@ void AddressFind(void)
         nTemp = 0;
         nCount = 0;
     }
+    return isFind;
 }
 
-/*查询主函数*/
-void Find(void)
+/*
+ *  查询主函数
+ *  有结果返回  1
+ *  没有结果返回0
+ */
+int Find(void)
 {
     int nMode = 0;
+    int isFind = 0;
 
     system("cls");
     ShowInputString();
@@ -142,19 +160,29 @@ void Find(void)
     switch (nMode)
     {
     case 1:
-        NameFind();
+        isFind = NameFind();
         break;
     case 2:
-        PhoneFind();
+        isFind = PhoneFind();
         break;
     case 3:
-        AddressFind();
+        isFind = AddressFind();
         break;
     default:
-        MyPrint("没有这种模式!请重输\r\n");
-        break;
+        MyPrint("没有这种模式!\r\n");
+        system("pause");
+        return isFind;
+    }
+    if (isFind)
+    {
+        MyPrint("=================找到的联系人=================\r\n");
+        return isFind;
+    }
+    else
+    {
+        MyPrint("没有找到!\r\n");
+        system("pause");
+        return isFind;
     }
 
-    MyPrint("=================找到的名单=================\r\n");
-    return;
 }

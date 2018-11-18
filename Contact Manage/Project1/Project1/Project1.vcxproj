@@ -116,19 +116,27 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AddString.c" />
+    <ClCompile Include="Count.c" />
     <ClCompile Include="Delete.c" />
+    <ClCompile Include="Diskfragment.c" />
     <ClCompile Include="FileOpearte.c" />
     <ClCompile Include="Find.c" />
     <ClCompile Include="Input.c" />
+    <ClCompile Include="MemInfo.c" />
+    <ClCompile Include="Modify.c" />
     <ClCompile Include="Source.c" />
     <ClCompile Include="UI.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddString.h" />
+    <ClInclude Include="Count.h" />
     <ClInclude Include="Delete.h" />
+    <ClInclude Include="Diskfragment.h" />
     <ClInclude Include="FileOpearte.h" />
     <ClInclude Include="Find.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="MemInfo.h" />
+    <ClInclude Include="Modify.h" />
     <ClInclude Include="UI.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

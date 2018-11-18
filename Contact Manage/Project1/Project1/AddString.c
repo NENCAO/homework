@@ -137,6 +137,4 @@ void AddString(void)
     ModifyManagment(pstFindMangerHead, nLength);
 
     ModifyMemory(pstFindMangerHead, szUserName, nLength);
-
-
 }

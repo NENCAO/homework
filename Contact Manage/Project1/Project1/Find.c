@@ -154,7 +154,7 @@ int Find(void)
 
     system("cls");
     ShowInputString();
-    MyPrint("请输入查找模式\r\n1.按名字查找    2.按电话号查找    3.按地址查找\r\n");
+    MyPrint("请输入查找模式\r\n1.按名字查找    2.按手机号查找    3.按地址查找\r\n");
     nMode = GetIntUserInput();
 
     switch (nMode)
@@ -176,6 +176,7 @@ int Find(void)
     if (isFind)
     {
         MyPrint("=================找到的联系人=================\r\n");
+        system("pause");
         return isFind;
     }
     else
